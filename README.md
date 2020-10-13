@@ -34,9 +34,37 @@ ll LIS(ll a[],ll n)
        v.pb(a[i]);
        else
        {
-         ll idx=lb(v.begin(),v.end(),a[i])-v.begin();
+         ll idx=ub(v.begin(),v.end(),a[i])-v.begin();
          v[idx]=arr[i];
        }
      }
        return v.size();
   }
+                       
+                       
+                       NON_DECREASING SUBSEQUENCE
+                       
+                       
+                       
+  ll LIS(ll a[],ll n)
+  {
+     vector<ll>v;
+     v.pb(a[0]);
+     f(i,1,n)
+     {
+       if(v.back<=a[i])     //less than equal to
+       v.pb(a[i]);
+       else
+       {
+         ll idx=ub(v.begin(),v.end(),a[i])-v.begin();   //upper_bound
+         v[idx]=arr[i];
+       }
+     }
+       return v.size();
+  }
+
+
+                       
+                       
+                       
+
